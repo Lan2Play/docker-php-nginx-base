@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build 8.1 Linux Image
         if: ${{ github.event_name == 'pull_request' && (github.ref_name == 'php8.1' || github.base_ref == 'php8.1') }}
-        uses: docker/build-push-action@v4.0.0
+        uses: docker/build-push-action@v4.1.0
         with:
           context: .
           file: ./Dockerfile
@@ -49,7 +49,7 @@ jobs:
           push: false      
       - name: Build and push 8.1 Linux Image
         if: ${{ github.event_name != 'pull_request'  && (github.ref_name == 'php8.1' || github.base_ref == 'php8.1') }}
-        uses: docker/build-push-action@v4.0.0
+        uses: docker/build-push-action@v4.1.0
         with:
           context: .
           file: ./Dockerfile
@@ -66,7 +66,7 @@ jobs:
           push: true      
       - name: Build 8.2 Linux Image
         if: ${{ github.event_name == 'pull_request' && (github.ref_name == 'php8.2' || github.base_ref == 'php8.2') }}
-        uses: docker/build-push-action@v4.0.0
+        uses: docker/build-push-action@v4.1.0
         with:
           context: .
           file: ./Dockerfile
@@ -84,7 +84,7 @@ jobs:
           push: false      
       - name: Build and push 8.2 Linux Image
         if: ${{ github.event_name != 'pull_request' && (github.ref_name == 'php8.2' || github.base_ref == 'php8.2') }}
-        uses: docker/build-push-action@v4.0.0
+        uses: docker/build-push-action@v4.1.0
         with:
           context: .
           file: ./Dockerfile
