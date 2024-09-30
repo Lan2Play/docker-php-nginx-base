@@ -4,7 +4,7 @@ updates:
 
  # Enable version updates for Docker
   - package-ecosystem: "docker"
-    target-branch: "php8.1"
+    target-branch: "php8.3"
     directory: "/"
     schedule:
       interval: "daily"
@@ -16,27 +16,7 @@ updates:
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
-    target-branch: "php8.1"
-    directory: "/"
-    schedule:
-      interval: "daily"
-
-
- # Enable version updates for Docker
-  - package-ecosystem: "docker"
-    target-branch: "php8.2"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    ignore:
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-major" ]
-      - dependency-name: "*"
-        update-types: [ "version-update:semver-minor" ]
-
-  # Enable version updates for GitHub Actions
-  - package-ecosystem: "github-actions"
-    target-branch: "php8.2"
+    target-branch: "php8.3"
     directory: "/"
     schedule:
       interval: "daily"

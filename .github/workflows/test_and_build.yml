@@ -3,20 +3,17 @@ name: Test and Build
 on:
   push:
     branches: 
-      # - php8.1
-      - php8.2
+      - php8.3
   pull_request:
     branches: 
-      # - php8.1
-      - php8.2
+      - php8.3
   repository_dispatch: # Allows action to be triggered via webhook
   workflow_dispatch: # Allows action to be run manually from the Actions tab
 
 
 jobs:
   build-docker:
-      # if: ${{ github.ref_name == 'php8.1' || github.base_ref == 'php8.1' || github.ref_name == 'php8.2' || github.base_ref == 'php8.2'  }}
-      if: ${{ github.ref_name == 'php8.2' || github.base_ref == 'php8.2'  }}
+      if: ${{ github.ref_name == 'php8.3' || github.base_ref == 'php8.3'  }}
       runs-on: 'ubuntu-latest'
       steps:
       - name: Checkout
@@ -31,42 +28,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # - name: Build 8.1 Linux Image
-      #   if: ${{ github.event_name == 'pull_request' && (github.ref_name == 'php8.1' || github.base_ref == 'php8.1') }}
-      #   uses: docker/build-push-action@v5.0.0
-      #   with:
-      #     context: .
-      #     file: ./Dockerfile
-      #     platforms: linux/amd64,linux/arm/v7
-      #     tags: |
-      #       lan2play/docker-php-nginx-base:php8.1
-      #       lan2play/docker-php-nginx-base:v3
-      #     build-args: |
-      #       BUILDNODE=GitHub (Run Number: ${{ github.run_number }} Run ID: ${{ github.run_id }})
-      #       BUILDID=${{ github.run_id }}
-      #       BUILDNUMBER=${{ github.run_number }}
-      #       SOURCE_COMMIT=${{ github.sha }}
-      #     no-cache: true
-      #     push: false      
-      # - name: Build and push 8.1 Linux Image
-      #   if: ${{ github.event_name != 'pull_request'  && (github.ref_name == 'php8.1' || github.base_ref == 'php8.1') }}
-      #   uses: docker/build-push-action@v5.0.0
-      #   with:
-      #     context: .
-      #     file: ./Dockerfile
-      #     platforms: linux/amd64,linux/arm/v7
-      #     tags: |
-      #       lan2play/docker-php-nginx-base:php8.1
-      #       lan2play/docker-php-nginx-base:v3
-      #     build-args: |
-      #       BUILDNODE=GitHub (Run Number: ${{ github.run_number }} Run ID: ${{ github.run_id }})
-      #       BUILDID=${{ github.run_id }}
-      #       BUILDNUMBER=${{ github.run_number }}
-      #       SOURCE_COMMIT=${{ github.sha }}
-      #     no-cache: true
-      #     push: true      
-      - name: Build 8.2 Linux Image
-        if: ${{ github.event_name == 'pull_request' && (github.ref_name == 'php8.2' || github.base_ref == 'php8.2') }}
+      - name: Build 8.3 Linux Image
+        if: ${{ github.event_name == 'pull_request' && (github.ref_name == 'php8.3' || github.base_ref == 'php8.3') }}
         uses: docker/build-push-action@v5.0.0
         with:
           context: .
@@ -74,8 +37,8 @@ jobs:
           platforms: linux/amd64,linux/arm/v7
           tags: |
             lan2play/docker-php-nginx-base:latest
-            lan2play/docker-php-nginx-base:php8.2
-            lan2play/docker-php-nginx-base:v4
+            lan2play/docker-php-nginx-base:php8.3
+            lan2play/docker-php-nginx-base:v5
           build-args: |
             BUILDNODE=GitHub (Run Number: ${{ github.run_number }} Run ID: ${{ github.run_id }})
             BUILDID=${{ github.run_id }}
@@ -83,8 +46,8 @@ jobs:
             SOURCE_COMMIT=${{ github.sha }}
           no-cache: true
           push: false      
-      - name: Build and push 8.2 Linux Image
-        if: ${{ github.event_name != 'pull_request' && (github.ref_name == 'php8.2' || github.base_ref == 'php8.2') }}
+      - name: Build and push 8.3 Linux Image
+        if: ${{ github.event_name != 'pull_request' && (github.ref_name == 'php8.3' || github.base_ref == 'php8.3') }}
         uses: docker/build-push-action@v5.0.0
         with:
           context: .
@@ -92,8 +55,8 @@ jobs:
           platforms: linux/amd64,linux/arm/v7
           tags: |
             lan2play/docker-php-nginx-base:latest
-            lan2play/docker-php-nginx-base:php8.2
-            lan2play/docker-php-nginx-base:v4
+            lan2play/docker-php-nginx-base:php8.3
+            lan2play/docker-php-nginx-base:v5
           build-args: |
             BUILDNODE=GitHub (Run Number: ${{ github.run_number }} Run ID: ${{ github.run_id }})
             BUILDID=${{ github.run_id }}
