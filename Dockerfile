@@ -51,8 +51,8 @@ RUN addgroup -S nginx \
 
 # Install PHP exts
 RUN docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg && \
-	docker-php-ext-install mysqli pdo_mysql gd bcmath intl
-RUN pecl install imagick
+	docker-php-ext-install mysqli pdo_mysql gd bcmath intl imagick/imagick@28f27044e435a2b203e32675e942eb8de620ee58
+#RUN pecl install imagick
 RUN docker-php-ext-enable imagick
 
 
