@@ -3,11 +3,10 @@ LABEL org.opencontainers.image.authors="Thornton Phillis (Th0rn0@lanops.co.uk), 
 
 # ENV - Config
 
-ENV UUID 1000
-ENV GUID 1000
-ENV NGINX_VERSION 1.26.2
-ENV SUPERVISOR_LOG_ROOT /var/log/supervisor
-ENV NGINX_DOCUMENT_ROOT /web/html
+ENV UUID=1000
+ENV GUID=1000
+ENV SUPERVISOR_LOG_ROOT=/var/log/supervisor
+ENV NGINX_DOCUMENT_ROOT=/web/html
 
 # Install Dependencies
 
