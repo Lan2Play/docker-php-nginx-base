@@ -9,3 +9,7 @@
 docker buildx is require to build multiple archs
 
 ```docker buildx build --platform linux/amd64,linux/arm/v7 --no-cache --push -t lan2play/php-nginx-base:latest .```
+
+# Credits
+
+This repository is initially based of the work in [th0rn0's](https://github.com/th0rn0) [docker-php-nginx-base](https://github.com/th0rn0/docker-php-nginx-base). Thanks for that!

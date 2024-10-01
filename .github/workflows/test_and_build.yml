@@ -4,6 +4,9 @@ on:
   push:
     branches: 
       - php8.3
+    paths-ignore:
+      - README.md
+      - .github/workflows/dependabot.yml
   pull_request:
     branches: 
       - php8.3
