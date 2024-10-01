@@ -30,7 +30,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build 8.3 Linux Image
         if: ${{ github.event_name == 'pull_request' && (github.ref_name == 'php8.3' || github.base_ref == 'php8.3') }}
-        uses: docker/build-push-action@v5.0.0
+        uses: docker/build-push-action@v6.9.0
         with:
           context: .
           file: ./Dockerfile
@@ -48,7 +48,7 @@ jobs:
           push: false      
       - name: Build and push 8.3 Linux Image
         if: ${{ github.event_name != 'pull_request' && (github.ref_name == 'php8.3' || github.base_ref == 'php8.3') }}
-        uses: docker/build-push-action@v5.0.0
+        uses: docker/build-push-action@v6.9.0
         with:
           context: .
           file: ./Dockerfile
