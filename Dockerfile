@@ -52,9 +52,13 @@ RUN addgroup -S nginx \
 
 # Install PHP exts
 RUN docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg && \
-	docker-php-ext-install mysqli pdo_mysql gd bcmath intl xdebug
+	docker-php-ext-install mysqli pdo_mysql gd bcmath intl
 RUN install-php-extensions imagick/imagick@28f27044e435a2b203e32675e942eb8de620ee58
 RUN docker-php-ext-enable imagick
+
+# install xdebug
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug 
 
 
 RUN rm -f /var/cache/apk/* \
