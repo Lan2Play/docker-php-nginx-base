@@ -1,4 +1,4 @@
-FROM php:8.3.17-fpm-alpine3.21 AS builder
+FROM php:8.3.20-fpm-alpine3.21 AS builder
 LABEL org.opencontainers.image.authors="Thornton Phillis (Th0rn0@lanops.co.uk), Alexader Volz (Alexander@volzit.de)"
 
 # ENV - Config
