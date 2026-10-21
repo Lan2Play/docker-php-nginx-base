@@ -54,7 +54,7 @@ RUN addgroup -S nginx \
 # Install PHP exts
 RUN docker-php-ext-configure gd --with-freetype --with-webp --with-jpeg && \
 	docker-php-ext-install mysqli pdo_mysql gd bcmath intl
-RUN install-php-extensions imagick/imagick
+RUN install-php-extensions imagick
 RUN docker-php-ext-enable imagick
 
 # install xdebug
