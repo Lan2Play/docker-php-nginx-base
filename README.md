@@ -1,6 +1,7 @@
 # Base image with PHP & Nginx for Eventula manager
 
-- PHP8.3 - v5
+- PHP8.5 - v6
+- PHP8.3 - v5 - Unsupported
 - PHP8.2 - v4 - Unsupported
 - PHP8.1 - v3 - Unsupported
 - PHP8 - v2 - Unsupported
